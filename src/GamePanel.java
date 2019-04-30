@@ -67,7 +67,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	@Override
-	public void keyPressed(KeyEvent e) {
+	public void keyPressed(KeyEvent e) {//key realeased
 		// TODO Auto-generated method stub
 		System.out.println("key pressed");
 		int keyCode = e.getKeyCode();
@@ -95,7 +95,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {
+	public void keyReleased(KeyEvent e) {//this one
 		// TODO Auto-generated method stub
 		System.out.println("key released");
 	}
@@ -107,7 +107,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 	
 	void updateMenuState() {
-		ship.draw(g);//hahoy
+		
 	}
 	
 	void updateGameState() {
@@ -131,7 +131,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	
 	void drawGameState(Graphics g) {
 		g.setColor(Color.BLACK);
-		g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.height); 
+		g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.height);
+		ship.draw(g);
 	}
 	
 	void drawEndState(Graphics g) {

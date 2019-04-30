@@ -3,13 +3,17 @@ import java.awt.Graphics;
 
 public class Rocketship extends GameObject{
 
+	int speed;//this one
+	
 	public Rocketship(int x, int y, int widht, int height)	
 	{
 		super(x, y, widht, height);
 		
+		speed = 5;
+		
 	}
 	
-	void update() {
+	void update() {//this one & also make new ones if u need to make it move
 		
 	}
 	
