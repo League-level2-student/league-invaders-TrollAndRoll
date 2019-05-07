@@ -14,7 +14,7 @@ public class Rocketship extends GameObject{
 	}
 	
 	void update() {//this one & also make new ones if u need to make it move
-		
+		super.update();
 	}
 	
 	void draw(Graphics g) {

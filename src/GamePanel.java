@@ -72,16 +72,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		System.out.println("key pressed");
 		int keyCode = e.getKeyCode();
 		if(keyCode == KeyEvent.VK_W) {
-			
+			ship.y -= ship.speed;
 		}
 		else if(keyCode == KeyEvent.VK_A) {
-			
+			ship.x -= ship.speed;
 		}
 		else if(keyCode == KeyEvent.VK_S) {
-			
+			ship.y += ship.speed;
 		}
 		else if(keyCode == KeyEvent.VK_D) {
-			
+			ship.x += ship.speed;
 		}
 		
 		if(keyCode == KeyEvent.VK_ENTER) {
@@ -98,12 +98,56 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyReleased(KeyEvent e) {//this one
 		// TODO Auto-generated method stub
 		System.out.println("key released");
+		int keyCode = e.getKeyCode();
+		if(keyCode == KeyEvent.VK_W) {
+			ship.y -= ship.speed;
+		}
+		else if(keyCode == KeyEvent.VK_A) {
+			ship.x -= ship.speed;
+		}
+		else if(keyCode == KeyEvent.VK_S) {
+			ship.y += ship.speed;
+		}
+		else if(keyCode == KeyEvent.VK_D) {
+			ship.x += ship.speed;
+		}
+		
+		if(keyCode == KeyEvent.VK_ENTER) {
+			if(currentState >= END_STATE){
+                currentState = MENU_STATE;
+			}
+			else {
+				currentState++;
+			}
+		}
 	}
 
 	@Override
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("key typed");
+		int keyCode = e.getKeyCode();
+		if(keyCode == KeyEvent.VK_W) {
+			ship.y -= ship.speed;
+		}
+		else if(keyCode == KeyEvent.VK_A) {
+			ship.x -= ship.speed;
+		}
+		else if(keyCode == KeyEvent.VK_S) {
+			ship.y += ship.speed;
+		}
+		else if(keyCode == KeyEvent.VK_D) {
+			ship.x += ship.speed;
+		}
+		
+		if(keyCode == KeyEvent.VK_ENTER) {
+			if(currentState >= END_STATE){
+                currentState = MENU_STATE;
+			}
+			else {
+				currentState++;
+			}
+		}
 	}
 	
 	void updateMenuState() {
