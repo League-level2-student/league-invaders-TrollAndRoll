@@ -71,17 +71,18 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		// TODO Auto-generated method stub
 		System.out.println("key pressed");
 		int keyCode = e.getKeyCode();
+		
 		if(keyCode == KeyEvent.VK_W) {
-			ship.y -= ship.speed;
+			ship.moveUp = true;
 		}
 		else if(keyCode == KeyEvent.VK_A) {
-			ship.x -= ship.speed;
+			ship.moveLeft = true;
 		}
 		else if(keyCode == KeyEvent.VK_S) {
-			ship.y += ship.speed;
+			ship.moveDown = true;
 		}
 		else if(keyCode == KeyEvent.VK_D) {
-			ship.x += ship.speed;
+			ship.moveRight = true;
 		}
 		
 		if(keyCode == KeyEvent.VK_ENTER) {
@@ -100,25 +101,16 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		System.out.println("key released");
 		int keyCode = e.getKeyCode();
 		if(keyCode == KeyEvent.VK_W) {
-			ship.y -= ship.speed;
+			ship.moveUp = false;
 		}
 		else if(keyCode == KeyEvent.VK_A) {
-			ship.x -= ship.speed;
+			ship.moveLeft = false;
 		}
 		else if(keyCode == KeyEvent.VK_S) {
-			ship.y += ship.speed;
+			ship.moveDown = false;
 		}
 		else if(keyCode == KeyEvent.VK_D) {
-			ship.x += ship.speed;
-		}
-		
-		if(keyCode == KeyEvent.VK_ENTER) {
-			if(currentState >= END_STATE){
-                currentState = MENU_STATE;
-			}
-			else {
-				currentState++;
-			}
+			ship.moveRight = false;
 		}
 	}
 
@@ -126,28 +118,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	public void keyTyped(KeyEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("key typed");
-		int keyCode = e.getKeyCode();
-		if(keyCode == KeyEvent.VK_W) {
-			ship.y -= ship.speed;
-		}
-		else if(keyCode == KeyEvent.VK_A) {
-			ship.x -= ship.speed;
-		}
-		else if(keyCode == KeyEvent.VK_S) {
-			ship.y += ship.speed;
-		}
-		else if(keyCode == KeyEvent.VK_D) {
-			ship.x += ship.speed;
-		}
 		
-		if(keyCode == KeyEvent.VK_ENTER) {
-			if(currentState >= END_STATE){
-                currentState = MENU_STATE;
-			}
-			else {
-				currentState++;
-			}
-		}
 	}
 	
 	void updateMenuState() {
