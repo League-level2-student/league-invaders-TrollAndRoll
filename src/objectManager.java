@@ -4,6 +4,8 @@ public class objectManager {
 
 	Rocketship ship;
 	
+	
+	
 	public objectManager(Rocketship rocket){
 		this.ship = rocket;
 	}
