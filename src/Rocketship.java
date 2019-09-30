@@ -4,7 +4,7 @@ import java.awt.event.KeyEvent;
 
 public class Rocketship extends GameObject{
 
-	int speed;//this one
+	int speed;
 	
 	boolean moveRight = false;
 	boolean moveLeft = false;
@@ -19,7 +19,7 @@ public class Rocketship extends GameObject{
 		
 	}
 	
-	void update() {//this one & also make new ones if u need to make it move
+	void update() {
 		super.update();
 		
 		if(moveUp == true) {

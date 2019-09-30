@@ -20,6 +20,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	
 	Rocketship ship = new Rocketship(250, 700, 50, 50);
 	
+	objectManager oManager = new objectManager(ship);
+	
 	Font tittleFont;
 	Font littleFont;
 	
@@ -85,7 +87,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 			ship.moveRight = true;
 		}
 		
-		if(keyCode == KeyEvent.VK_ENTER) {
+		else if(keyCode == KeyEvent.VK_ENTER) {//you added else (not sure if that messes it up or something)
 			if(currentState >= END_STATE){
                 currentState = MENU_STATE;
 			}
@@ -93,10 +95,14 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 				currentState++;
 			}
 		}
+		
+		else if(keyCode == KeyEvent.VK_SPACE) {
+			oManager.addProjectile(new Projectile(ship.x + 20, ship.y + 30, 10, 10));
+		}
 	}
 
 	@Override
-	public void keyReleased(KeyEvent e) {//this one
+	public void keyReleased(KeyEvent e) {
 		// TODO Auto-generated method stub
 		System.out.println("key released");
 		int keyCode = e.getKeyCode();
@@ -126,7 +132,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	}
 	
 	void updateGameState() {
-		ship.update();
+		oManager.update();
 	}
 	
 	void updateEndState() {
@@ -147,7 +153,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 	void drawGameState(Graphics g) {
 		g.setColor(Color.BLACK);
 		g.fillRect(0, 0, LeagueInvaders.width, LeagueInvaders.height);
-		ship.draw(g);
+		oManager.draw(g);
 	}
 	
 	void drawEndState(Graphics g) {
