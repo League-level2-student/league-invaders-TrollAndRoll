@@ -1,14 +1,23 @@
 import java.awt.Graphics;
 import java.util.ArrayList;
+import java.util.Random;
 
 public class objectManager{
 
+	long enemyTimer = 0;
+	int enemySpawnTime = 1000;
+	
 	Rocketship ship;
 	
 	ArrayList <Projectile> projectiles = new ArrayList <Projectile>();
+	ArrayList <Alien> alien = new ArrayList <Alien>();
 	
 	public objectManager(Rocketship rocket){
 		this.ship = rocket;
+	}
+	
+	void purgeObjects() {
+		
 	}
 	
 	void update() {
@@ -16,6 +25,9 @@ public class objectManager{
 		
 		for (int i=0;i< projectiles.size();i++) {
 		     projectiles.get(i).update();
+		}
+		for (int i=0;i< alien.size();i++) {
+		     alien.get(i).update();
 		}
 	}
 	
@@ -25,9 +37,23 @@ public class objectManager{
 		for (int i=0;i< projectiles.size();i++) {
 		     projectiles.get(i).draw(g);
 		}
+		for (int i=0;i< alien.size();i++) {
+		     alien.get(i).draw(g);
+		}
 	}
 	
 	void addProjectile(Projectile p){
 		projectiles.add(p);
+	}
+	
+	void addAlien(Alien a) {
+		alien.add(a);
+	}
+	
+	void manageEnemies() {
+		if(System.currentTimeMillis() - enemyTimer >= enemySpawnTime){
+            addAlien(new Alien(new Random().nextInt(LeagueInvaders.width), 0, 50, 50));
+            enemyTimer = System.currentTimeMillis();
+    }
 	}
 }
