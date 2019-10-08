@@ -8,7 +8,8 @@ public class Alien extends GameObject{
 		}
 		
 		void update() {
-		y = y++;
+		y = y+1;
+		
 		}
 		
 		void draw(Graphics g) {

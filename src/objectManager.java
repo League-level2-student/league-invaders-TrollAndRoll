@@ -22,12 +22,13 @@ public class objectManager{
 	
 	void update() {
 		ship.update();
-		
-		for (int i=0;i< projectiles.size();i++) {
+	
+		for (int i=0;i < projectiles.size();i++) {
 		     projectiles.get(i).update();
 		}
 		for (int i=0;i< alien.size();i++) {
 		     alien.get(i).update();
+		 
 		}
 	}
 	
@@ -52,7 +53,7 @@ public class objectManager{
 	
 	void manageEnemies() {
 		if(System.currentTimeMillis() - enemyTimer >= enemySpawnTime){
-            addAlien(new Alien(new Random().nextInt(LeagueInvaders.width), 0, 50, 50));
+            addAlien(new Alien(new Random().nextInt(LeagueInvaders.width - ship.width), 0, 50, 50));
             enemyTimer = System.currentTimeMillis();
     }
 	}

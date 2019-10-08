@@ -21,18 +21,30 @@ public class Rocketship extends GameObject{
 	
 	void update() {
 		super.update();
-		
+	
 		if(moveUp == true) {
-			y -= speed;
+			if(y != 0 || y > 0)
+			{
+				y -= speed;	
+			}
 		}
 		else if(moveLeft == true) {
+			if(x != 0 || x > 0)
+			{
 			x -= speed;
+			}
 		}
 		else if(moveDown == true) {
+			if(y != LeagueInvaders.height - this.height)
+			{
 			y += speed;
+			}
 		}
 		else if(moveRight == true) {
+			if(x < LeagueInvaders.width - this.width)
+			{
 			x += speed;
+			}
 		}
 	}
 	
