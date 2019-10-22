@@ -28,7 +28,7 @@ public class objectManager{
 		}
 		for (int i=0;i< alien.size();i++) {
 		     alien.get(i).update();
-		 
+		    
 		}
 	}
 	
@@ -57,4 +57,25 @@ public class objectManager{
             enemyTimer = System.currentTimeMillis();
     }
 	}
+	
+	void checkCollision() {
+		for(Alien a : alien){
+	        if(ship.collisionBox.intersects(a.collisionBox)){
+	                ship.isAlive = false;
+	        }
+	        
+		for (int i=0;i< alien.size();i++) {
+			if(alien.get(i).collisionBox.intersects(a.collisionBox))
+			{
+				alien.get(i).isAlive = false;
+			}
+		for (int l=0;l< projectiles.size();l++) {
+			if(alien.get(i).collisionBox.intersects(a.collisionBox))
+			{
+				projectiles.get(l).isAlive = false;
+			}
+		}
+	}
+	}
+}
 }

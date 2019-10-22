@@ -26,6 +26,8 @@ public class Alien extends GameObject {
 		} else if (move == 1) {
 			x = x - 1;
 		}
+		
+		super.update();
 	}
 
 	void draw(Graphics g) {
