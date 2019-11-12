@@ -14,7 +14,8 @@ public class Alien extends GameObject {
 	int move = moveDecider.nextInt(2);
 
 	void update() {
-
+		super.update();
+		
 		y = y + 1;
 		if (i > 30) {
 			i = 0;
@@ -32,6 +33,10 @@ public class Alien extends GameObject {
 
 	void draw(Graphics g) {
 		g.setColor(Color.YELLOW);
+		if(isAlive==false) {
+			g.setColor(Color.RED);
+		}
 		g.fillRect(x, y, width, height);
+		
 	}
 }

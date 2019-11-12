@@ -83,6 +83,8 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		else if (keyCode == KeyEvent.VK_ENTER) {// you added else (not sure if that messes it up or something)
 			if (currentState >= END_STATE) {
 				currentState = MENU_STATE;
+				ship = new Rocketship(250, 700, 50, 50);
+				oManager = new objectManager(ship);
 			} else {
 				currentState++;
 			}
@@ -126,6 +128,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		oManager.purgeObjects();
 		if (ship.isAlive == false) {
 			currentState = END_STATE;
+			ship.isAlive = true;
 		}
 	}
 
@@ -157,7 +160,7 @@ public class GamePanel extends JPanel implements ActionListener, KeyListener {
 		g.setColor(Color.BLACK);
 		g.drawString("Game Over", 100, 200);
 		g.setFont(littleFont);
-		g.drawString("You killed " + 0 + " enemies", 130, 350);
+		g.drawString("You killed " + oManager.score + " enemies", 130, 350);
 		g.drawString("Press ENTER to restart", 120, 500);
 	}
 }

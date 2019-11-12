@@ -22,7 +22,18 @@ public class objectManager {
 	}
 	
 	void purgeObjects() {
+		for (int i = 0; i < alien.size(); i++) {
+			if (alien.get(i).isAlive == false) {
 
+				alien.remove(i);
+			}
+		}
+		for (int i = 0; i < projectiles.size(); i++) {
+			if (projectiles.get(i).isAlive == false) {
+
+				projectiles.remove(i);
+			}
+		}
 	}
 
 	void update() {
@@ -34,6 +45,8 @@ public class objectManager {
 		for (int i = 0; i < alien.size(); i++) {
 			alien.get(i).update();
 		}
+		checkCollision();
+		purgeObjects();
 	}
 
 	void draw(Graphics g) {
@@ -68,17 +81,14 @@ public class objectManager {
 				ship.isAlive = false;
 			}
 
-			for (int i = 0; i < alien.size(); i++) {
-				if (alien.get(i).collisionBox.intersects(a.collisionBox)) {
-					alien.get(i).isAlive = false;
-				}
 				for (int l = 0; l < projectiles.size(); l++) {
-					if (alien.get(i).collisionBox.intersects(a.collisionBox)) {
+					if (projectiles.get(l).collisionBox.intersects(a.collisionBox)) {
+						a.isAlive = false;
 						projectiles.get(l).isAlive = false;
-						score = score + 1;
+						score = getScore() + 1;
 					}
 				}
 			}
 		}
 	}
-}
+
