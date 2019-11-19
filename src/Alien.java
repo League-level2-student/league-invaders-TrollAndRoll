@@ -32,11 +32,6 @@ public class Alien extends GameObject {
 	}
 
 	void draw(Graphics g) {
-		g.setColor(Color.YELLOW);
-		if(isAlive==false) {
-			g.setColor(Color.RED);
-		}
-		g.fillRect(x, y, width, height);
-		
+		g.drawImage(GamePanel.alienImg, x, y, width, height, null);
 	}
 }
